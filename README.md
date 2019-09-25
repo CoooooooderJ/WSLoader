@@ -7,12 +7,12 @@
 
 ## I. 效果
 
-![](resource4readme/1569441940366065.gif)
+![](https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/1569441940366065.gif)
 
 ```低配版```
 
 
-![](resource4readme/1569441940198703.gif)
+![](https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/1569441940198703.gif)
 
 ```高配版```
 
@@ -42,13 +42,13 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
 3. style 有四种：
     * none
   
-        ![](resource4readme/41569444870_.pic.jpg)
+        ![](https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/41569444870_.pic.jpg)
     * label
 
-        ![](resource4readme/51569445260_.pic.jpg)
+        ![](https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/51569445260_.pic.jpg)
     * bilabel
 
-        ![](resource4readme/61569445379_.pic.jpg)
+        ![](https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/61569445379_.pic.jpg)
     * excutable
 
         效果如最开始的两张效果图。可以通过赋值 playAction 和 pauseAction 这两个闭包 来实现 loader 的点击
@@ -105,9 +105,9 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
 
 
 ## V. 如果此 repo 对您有用， 不妨赞赏几枚硬币买杯咖啡哈😝
-<img src="resource4readme/paypal.png" width=30 height=30> paypal： https://www.paypal.me/coooooooderj
+<img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/paypal.png" width=30 height=30> paypal： https://www.paypal.me/coooooooderj
 
-<img src="resource4readme/wechat.png" width=30 height=30> 微信赞赏： <img src="resource4readme/coffee.jpg" width=180 height=180>
+<img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/wechat.png" width=30 height=30> 微信赞赏： <img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/coffee.jpg" width=180 height=180>
 
 
 
@@ -115,9 +115,9 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
 
 
 ## VI. 联系 / Contact Me
-<img src="resource4readme/wechat.png" width=30 height=30> myjawdrops
+<img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/wechat.png" width=30 height=30> myjawdrops
 
-<img src="resource4readme/tencent.png" width=30 height=30> 894318488
+<img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/tencent.png" width=30 height=30> 894318488
 
 
 
