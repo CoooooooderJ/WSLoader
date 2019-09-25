@@ -39,7 +39,7 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
    ```
    height 值无所谓多少，因为 **loader** 的 rect 总是正方形， 只根据 frame 来构建视图和图层。
    之后，在合适的地方，给 **loader** 的 value 和 text 属性赋值就行了。 UI操作已经进行主线程异步处理，所以赋值操作不用再在主线程进行了
-3. style 有四种：
+3. style 有四种：
     * none
   
         ![](https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/41569444870_.pic.jpg)
@@ -114,7 +114,7 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
 
 
 
-## VI. 联系 / Contact Me
+## VI. 联系
 <img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/wechat.png" width=30 height=30> myjawdrops
 
 <img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/tencent.png" width=30 height=30> 894318488
