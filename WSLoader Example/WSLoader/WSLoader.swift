@@ -95,8 +95,11 @@ class WSLoader: UIView {
         }
         set {
             pulsingAnimation.timingFunction = newValue
-            self.removePulsing()
-            self.animatePulsing()
+
+            if isPulsing {
+                self.removePulsing()
+                self.animatePulsing()
+            }
         }
     }
     
@@ -107,8 +110,10 @@ class WSLoader: UIView {
         }
         set {
             pulsingAnimation.duration = newValue / 2
-            self.removePulsing()
-            self.animatePulsing()
+            if isPulsing {
+                self.removePulsing()
+                self.animatePulsing()
+            }
         }
     }
     
@@ -119,8 +124,10 @@ class WSLoader: UIView {
         }
         set {
             pulsingAnimation.toValue = newValue
-            self.removePulsing()
-            self.animatePulsing()
+            if isPulsing {
+                self.removePulsing()
+                self.animatePulsing()
+            }
         }
     }
     
@@ -338,7 +345,7 @@ class WSLoader: UIView {
     }
     
     fileprivate func setupLayers() {
-        pulsingLayer = createShapeLayer(.red, fillColor: .pink, lineWidth: 0)
+        pulsingLayer = createShapeLayer(.red, fillColor: .gray, lineWidth: 0)
         self.layer.addSublayer(pulsingLayer)
         
         trackLayer = createShapeLayer(.lightGray, fillColor: .white, lineWidth: 10)

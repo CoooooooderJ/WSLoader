@@ -55,11 +55,11 @@ class ViewController: UIViewController, URLSessionDownloadDelegate {
         view.addSubview(loader)
         
         loader.textColor = .red
-        loader.textFont = .systemFont(ofSize: 50)
+        loader.textFont = .systemFont(ofSize: 28)
         loader.trackWidth = 25
-        loader.subTextColor = .yellow
+        loader.subText = "已完成"
+        loader.subTextColor = .pink
         loader.buttonTintColor = .red
-        loader.isPulsing = true
         loader.pulsingScale = 1.4
         loader.pulsingDuration = 1.6
         loader.stopPulsingWhenFinish = true
