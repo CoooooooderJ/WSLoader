@@ -13,8 +13,8 @@
 		2676B1422339545700B3FF34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2676B1402339545700B3FF34 /* Main.storyboard */; };
 		2676B1442339545C00B3FF34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2676B1432339545C00B3FF34 /* Assets.xcassets */; };
 		2676B1472339545C00B3FF34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2676B1452339545C00B3FF34 /* LaunchScreen.storyboard */; };
-		2676B150233956CA00B3FF34 /* WSLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B14F233956C900B3FF34 /* WSLoader.swift */; };
 		2676B152233B390300B3FF34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B151233B390300B3FF34 /* Extensions.swift */; };
+		2676B154233B532000B3FF34 /* WSLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B153233B532000B3FF34 /* WSLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +26,8 @@
 		2676B1432339545C00B3FF34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2676B1462339545C00B3FF34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2676B1482339545C00B3FF34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2676B14F233956C900B3FF34 /* WSLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSLoader.swift; sourceTree = "<group>"; };
 		2676B151233B390300B3FF34 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2676B153233B532000B3FF34 /* WSLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 		2676B14E2339569F00B3FF34 /* WSLoader */ = {
 			isa = PBXGroup;
 			children = (
-				2676B14F233956C900B3FF34 /* WSLoader.swift */,
+				2676B153233B532000B3FF34 /* WSLoader.swift */,
 			);
 			path = WSLoader;
 			sourceTree = "<group>";
@@ -153,9 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2676B152233B390300B3FF34 /* Extensions.swift in Sources */,
+				2676B154233B532000B3FF34 /* WSLoader.swift in Sources */,
 				2676B13F2339545700B3FF34 /* ViewController.swift in Sources */,
 				2676B13B2339545700B3FF34 /* AppDelegate.swift in Sources */,
-				2676B150233956CA00B3FF34 /* WSLoader.swift in Sources */,
 				2676B13D2339545700B3FF34 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZW74933TJJ;
 				INFOPLIST_FILE = "WSLoader Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZW74933TJJ;
 				INFOPLIST_FILE = "WSLoader Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

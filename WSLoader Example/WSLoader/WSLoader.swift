@@ -35,28 +35,30 @@ class WSLoader: UIView {
     
     // 当 style 为 excutable 时，loader 会在这几个状态中变换
     // 开始执行时间任务时，loader 状态为 animating 或者 paused；任务完成时，为 label（或者自定制状态）
-    // 注意，状态设置请在主线程中进行， 因为设置状态会对 UI 进行操作
     var state: LoaderState {
         get {
             return self.loaderState
         }
-        
         set {
             self.loaderState = newValue
-            if self.style == .excutable && newValue == .animating {
-                self.stackView.isHidden = true
-                self.playButton.isHidden = false
-                self.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-                self.playButton.imageEdgeInsets = UIEdgeInsets.zero
-            }else if self.style == .excutable && newValue == .paused {
-                self.stackView.isHidden = true
-                self.playButton.isHidden = false
-                self.playButton.setImage(UIImage(named: "play")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-                self.playButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-            }else {
-                self.isPulsing = false
-                self.stackView.isHidden = false
-                self.playButton.isHidden = true
+            DispatchQueue.main.async {
+                if self.style == .excutable && newValue == .animating {
+                    self.stackView.isHidden = true
+                    self.playButton.isHidden = false
+                    self.playButton.setImage(UIImage(named: "pause")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+                    self.playButton.imageEdgeInsets = UIEdgeInsets.zero
+                }else if self.style == .excutable && newValue == .paused {
+                    self.stackView.isHidden = true
+                    self.playButton.isHidden = false
+                    self.playButton.setImage(UIImage(named: "play")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+                    self.playButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+                }else {
+                    if self.value == 1 && self.stopPulsingWhenFinish {
+                        self.isPulsing = false
+                    }
+                    self.stackView.isHidden = false
+                    self.playButton.isHidden = true
+                }
             }
         }
     }
@@ -72,6 +74,8 @@ class WSLoader: UIView {
             isPulsing ? animatePulsing() : removePulsing()
         }
     }
+    
+    var stopPulsingWhenFinish = false
     
     // 跳动层的颜色
     var pulsingColor: UIColor {
@@ -256,7 +260,6 @@ class WSLoader: UIView {
         get {
             return playButton.frame.size
         }
-        
         set {
             if style == .excutable {
                 let w = newValue.width
@@ -270,14 +273,19 @@ class WSLoader: UIView {
     
     // MARK:- sublayers, subviews and private vars
     
-    fileprivate let trackLayer = CAShapeLayer()
-    fileprivate let shapeLayer = CAShapeLayer()
-    fileprivate var pulsingLayer = CAShapeLayer()
+    fileprivate var trackLayer: CAShapeLayer!
+    fileprivate var shapeLayer: CAShapeLayer!
+    fileprivate var pulsingLayer: CAShapeLayer!
+    
+    fileprivate var loaderStyle: LoaderStyle = .none
+    fileprivate var loaderState: LoaderState = .label
+    
+    // label 和 button 的容器
+    private let stackView = UIStackView()
     
     private lazy var textLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = ""
-//        lbl.font = UIFont.boldSystemFont(ofSize: 80)
         lbl.textAlignment = .center
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
@@ -298,12 +306,7 @@ class WSLoader: UIView {
         btn.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
         return btn
     }()
-    
-    private let stackView = UIStackView()
-    
-    fileprivate var loaderStyle: LoaderStyle = .none
-    fileprivate var loaderState: LoaderState = .label
-    
+        
     private lazy var pulsingAnimation: CABasicAnimation = {
         let anim = CABasicAnimation(keyPath: "transform.scale")
         anim.toValue = 1.3
@@ -326,6 +329,8 @@ class WSLoader: UIView {
         
         setupLayers()
         setupViews()
+        
+        isPulsing = false
     }
     
     required init?(coder: NSCoder) {
@@ -333,39 +338,31 @@ class WSLoader: UIView {
     }
     
     fileprivate func setupLayers() {
-        
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: frame.width / 2, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
-        
-        pulsingLayer.path = circularPath.cgPath
-        pulsingLayer.strokeColor = UIColor.red.cgColor
-        pulsingLayer.lineWidth = 0
-        pulsingLayer.lineCap = .round
-        pulsingLayer.fillColor = UIColor.pink.cgColor
-        pulsingLayer.position = CGPoint(x: frame.width / 2, y: frame.width / 2)
+        pulsingLayer = createShapeLayer(.red, fillColor: .pink, lineWidth: 0)
         self.layer.addSublayer(pulsingLayer)
-        isPulsing = false
         
-        trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = trackColor.cgColor
-        trackLayer.lineWidth = trackWidth
-        trackLayer.lineCap = .round
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.position = CGPoint(x: frame.width / 2, y: frame.width / 2)
+        trackLayer = createShapeLayer(.lightGray, fillColor: .white, lineWidth: 10)
         self.layer.addSublayer(trackLayer)
         
-        shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        shapeLayer.lineWidth = trackWidth
-        shapeLayer.lineCap = .round
+        shapeLayer = createShapeLayer(.red, fillColor: .clear, lineWidth: 10)
         shapeLayer.strokeEnd = 0
-        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
-        shapeLayer.position = CGPoint(x: frame.width / 2, y: frame.width / 2)
         self.layer.addSublayer(shapeLayer)
     }
     
+    fileprivate func createShapeLayer(_ strokeColor: UIColor, fillColor: UIColor, lineWidth: CGFloat) -> CAShapeLayer {
+        let circularPath = UIBezierPath(arcCenter: .zero, radius: frame.width / 2, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circularPath.cgPath
+        shapeLayer.strokeColor = strokeColor.cgColor
+        shapeLayer.lineWidth = lineWidth
+        shapeLayer.lineCap = .round
+        shapeLayer.fillColor = fillColor.cgColor
+        shapeLayer.position = CGPoint(x: frame.width / 2, y: frame.width / 2)
+        return shapeLayer
+    }
+    
     fileprivate func setupViews() {
-
         let w = (frame.width - trackWidth) / CGFloat(sqrtf(2)) - 20
         stackView.frame.size = CGSize(width: w, height: w)
         stackView.frame.origin = CGPoint(x: (frame.width - w)/2, y: (frame.width - w)/2)
@@ -390,17 +387,6 @@ class WSLoader: UIView {
         }
     }
     
-    @objc fileprivate func handleTap() {
-        if state == .animating && self.pauseAction != nil {
-            state = .paused
-            self.pauseAction!(self.value)
-        }else if state == .paused && self.playAction != nil {
-            state = .animating
-            self.playAction!(self.value)
-        }
-    }
-    
-    
     private func animatePulsing() {
         pulsingLayer.add(pulsingAnimation, forKey: "pulse")
     }
@@ -409,4 +395,13 @@ class WSLoader: UIView {
         pulsingLayer.removeAnimation(forKey: "pulse")
     }
 
+    @objc private func handleTap() {
+        if state == .animating && self.pauseAction != nil {
+            self.state = .paused
+            self.pauseAction!(self.value)
+        }else if state == .paused && self.playAction != nil {
+            self.state = .animating
+            self.playAction!(self.value)
+        }
+    }
 }
