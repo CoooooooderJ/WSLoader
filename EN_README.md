@@ -94,7 +94,7 @@ iOS version 11.0+ （Other versions are not tested. The code doesn't contain API
         }
     ```
 
-## IV. LICENSE - [MIT](LICENSE.md)
+## IV. LICENSE - [MIT](LICENSE)
 
 
 ## V. Notice
