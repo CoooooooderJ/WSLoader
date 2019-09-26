@@ -97,7 +97,7 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
     ```
 
 
-## IV. 许可证 - [MIT](LICENSE.md)
+## IV. 许可证 - [MIT](LICENSE)
 
 
 ## V. 注意
