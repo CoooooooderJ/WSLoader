@@ -2,8 +2,8 @@
 //  Extensions.swift
 //  WSLoader Example
 //
-//  Created by Tina on 2019/9/25.
-//  Copyright © 2019 Tina. All rights reserved.
+//  Created by CoooooooderJ on 2019/9/25.
+//  Copyright © 2019 CoooooooderJ. All rights reserved.
 //
 
 import UIKit

@@ -97,14 +97,16 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
     ```
 
 
+## IV. 许可证 - [MIT](LICENSE.md)
 
-## IV. 注意
+
+## V. 注意
 # *Demo中所包含的图片网址 或者本文档中的效果图所包含的下载图片， 来自于 pexels.com. 如有侵权，请联系删除！*
 
 
 
 
-## V. 如果此 repo 对您有用， 不妨赞赏几枚硬币买杯咖啡哈😝
+## VI. 如果此 repo 对您有用， 不妨赞赏几枚硬币买杯咖啡哈😝
 <img src="resource4readme/paypal.png" width=30 height=30> paypal： https://www.paypal.me/coooooooderj
 
 <img src="resource4readme/wechat.png" width=30 height=30> 微信赞赏： <img src="resource4readme/coffee.jpg" width=180 height=180>
@@ -114,7 +116,7 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
 
 
 
-## VI. 联系 / Contact Me
+## VII. 联系 / Contact Me
 <img src="resource4readme/wechat.png" width=30 height=30> myjawdrops
 
 <img src="resource4readme/tencent.png" width=30 height=30> 894318488
