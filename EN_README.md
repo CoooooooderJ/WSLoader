@@ -114,3 +114,5 @@ iOS version 11.0+ （Other versions are not tested. The code doesn't contain API
 <img src="resource4readme/wechat.png" width=30 height=30> myjawdrops
 
 <img src="resource4readme/tencent.png" width=30 height=30> 894318488
+
+<img src="resource4readme/gmail.png" width=30 height=30> myjawdrops@gmail.com

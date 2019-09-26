@@ -121,5 +121,6 @@ iOS version 11.0+ （其他版本未测试。 没有使用过低版本不支持�
 
 <img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/tencent.png" width=30 height=30> 894318488
 
+<img src="https://github.com/CoooooooderJ/WSLoader/blob/master/resource4readme/gmail.png" width=30 height=30> myjawdrops@gmail.com
 
 
