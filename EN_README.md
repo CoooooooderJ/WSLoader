@@ -94,23 +94,23 @@ iOS version 11.0+ （Other versions are not tested. The code doesn't contain API
         }
     ```
 
+## IV. LICENSE - [MIT](LICENSE.md)
 
 
-
-## IV. Notice
+## V. Notice
 # IMAGE LINK, OR IMAGES CONTAINED IN THE EFFECT PART, ARE FROM PEXELS.COM. CONTACT ME IN CASE OF INVASION AND DELETION. 
 
 
 
 
-## V. Buy me a coffee if this repo is of some use ;-)
+## VI. Buy me a coffee if this repo is of some use ;-)
 <img src="resource4readme/paypal.png" width=30 height=30> paypal： https://www.paypal.me/coooooooderj
 
 <img src="resource4readme/wechat.png" width=30 height=30> wechat tips：   <img src="resource4readme/coffee.jpg" width=180 height=180>
 
 
 
-## VI. Contact Me
+## VII. Contact Me
 <img src="resource4readme/wechat.png" width=30 height=30> myjawdrops
 
 <img src="resource4readme/tencent.png" width=30 height=30> 894318488
